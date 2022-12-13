@@ -41,8 +41,6 @@ class LoginActivity : AppCompatActivity() {
         val txtPassword = findViewById<TextInputEditText>(R.id.txtPassword)
 
         btnLogin.setOnClickListener {
-            Toast.makeText(this, "Login Proses", Toast.LENGTH_LONG).show()
-
             api.login(txtEmail.text.toString(), txtPassword.text.toString()).enqueue(object : Callback<LoginResponse>{
                 override fun onResponse(
                     call: Call<LoginResponse>,

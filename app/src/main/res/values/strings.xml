@@ -3,4 +3,10 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bakso">Bakso</string>
+    <string name="_10_000">10.000</string>
+    <string name="button_delete">Button Delete</string>
+    <string name="button_edit">Button Edit</string>
 </resources>
