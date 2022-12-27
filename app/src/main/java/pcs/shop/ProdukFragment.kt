@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pcs.shop.LoginActivity.Companion.sessionManager
@@ -28,6 +32,14 @@ class ProdukFragment : Fragment() {
 
         getProduk(view)
 
+        val btnTambah = view.findViewById<Button>(R.id.btnTambah)
+        btnTambah.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("status", "tambah")
+
+            findNavController().navigate(R.id.produkFormFragment, bundle)
+        }
+
         return view
     }
 
@@ -41,7 +53,10 @@ class ProdukFragment : Fragment() {
             ) {
                 Log.d("ProdukData", response.body().toString())
 
+                val txtTotalProduk = view.findViewById<TextView>(R.id.txtTotalProduk)
                 val rv = view.findViewById<RecyclerView>(R.id.rv_produk)
+
+                txtTotalProduk.text = response.body()!!.data.produk.size.toString() + " Item"
 
                 rv.setHasFixedSize(true)
                 rv.layoutManager = LinearLayoutManager(activity)
